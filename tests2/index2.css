@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+}
+/* mise en forme bloque principal & classes générales */
+.floor {
+    background-color: red;
+    width: 100%;
+}
+#flMain {
+    height: 20%;
+
+}
+.air {
+    width: 100%
+}
+#airMain {
+    height: 80%;
+}
+
+#blMain {
+    width: 100vw;
+    height: 100vh;
+}
+/*css perso*/
+#moi {
+   width: 3rem;
+   height: 3rem;
+   background-color: blue;
+   bottom: 0%;
+   position: absolute;
+}
+
+/* animation jump
+
+.jump {
+    animation: jump 0.8s linear;
+}
+
+@keyframes jump {
+    
+    30% {
+        bottom: 30%;
+    }
+    50% {
+        bottom: 30%;
+    }
+    100% {
+        bottom: 0%;
+    }
+}*/
+
+/* mise en page bloque1*/
+
+#fl1 {
+height: 5%;
+width: 100%;
+}
+
+    #air1 {
+        height: 90%;
+        position: relative;
+    }
+    #bl1{
+        width: 15vw;
+        height: 30vh;
+        position: absolute;
+        left: 30%;
+bottom: 30%;
+    }
+
+/*mise en page bloque2*/
+
+#fl2 {
+    height: 5%;
+    width: 100%;
+    }
+    
+        #air2 {
+            height: 90%;
+            position: relative;
+        }
+        #bl2{
+            width: 15vw;
+            height: 30vh;
+            position: absolute;
+            left: 60%;
+    bottom: 30%;
+        }
