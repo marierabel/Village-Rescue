@@ -15,6 +15,8 @@ let jump = null;
 //   clearInterval(intervalId[intId]);
 //   console.log(intervalId[intId]);
 // }
+/* Définition variable jeu */
+let lifePoint = 20;
 
 /* fonction marche */
 function walking(charDirection) {

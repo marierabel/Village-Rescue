@@ -1,33 +1,105 @@
 * {
     margin: 0;
 }
-/* mise en forme bloque principal & classes générales */
-.floor {
-    background-color: red;
-    width: 100%;
-}
-#flMain {
-    height: 20%;
 
-}
-.air {
-    width: 100%
-}
-#airMain {
-    height: 80%;
-}
 
-#blMain {
-    width: 100vw;
+#gameFrame {
+    position: relative;
+    width: 200vw;
     height: 100vh;
 }
+#startGame {
+    width: 10vw;
+    height: 5vh;
+    background-color: yellow;
+    display: block;
+}
+#life {
+    display: block;
+    width: 10vw;
+    height: 5vh;
+}
+#navGame {
+    width: 100vw;
+    height: 5vh;
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+}
+/* mise en forme bloque principal & classes générales */
+.bloque {
+    background-color: red;
+    position: absolute;
+    overscroll-behavior: contain;
+}
+
+#bl7 {
+    animation: platMove 2.5s infinite ease-in-out;
+}
+@keyframes platMove {
+    
+    50% {
+        transform: translateX(150px)
+    }
+}
+
 /*css perso*/
 #moi {
-   width: 3rem;
-   height: 3rem;
    background-color: blue;
-   bottom: 0%;
    position: absolute;
+}
+
+/*css monstres*/
+.monster {
+    background-color: orchid;
+    position: absolute; 
+}
+
+@keyframes mt1Move {
+    
+    1% {transform: translate(0px, -10px);}
+    5% {transform: translate(0px,0px);}
+    47% {
+        transform: translate(300px,0px);
+    }
+    48% {transform: translate(300px, -10px);}
+    52% {transform: translate(300px,0px);}
+    100% {
+        transform: translate(0px,0px);
+    }
+   
+}
+
+@keyframes mt2Move {
+    
+    10% {
+        transform: translate(0px,0px);
+    }
+    15% {transform: translate(0px, -10px);}
+    20% {
+        transform: translate(0px,0px); 
+    }
+    40% {transform: translate(120px, 0px);}
+    50% {transform: translate(50px,0px);}
+    70% {
+        transform: translate(240px,0px);
+    }
+    85% {
+        transform: translate(100px,0px)
+    }
+    90% {
+        transform: translate(80px,0px);
+    }
+   
+}
+
+#mstr1 {
+    animation: mt1Move 4s infinite linear;
+}
+
+#mstr2 {
+        animation: mt2Move 6s infinite linear;
+        animation-delay: 3s;
 }
 
 /* animation jump
@@ -51,38 +123,7 @@
 
 /* mise en page bloque1*/
 
-#fl1 {
-height: 5%;
-width: 100%;
-}
 
-    #air1 {
-        height: 90%;
-        position: relative;
-    }
-    #bl1{
-        width: 15vw;
-        height: 30vh;
-        position: absolute;
-        left: 30%;
-bottom: 30%;
-    }
 
 /*mise en page bloque2*/
 
-#fl2 {
-    height: 5%;
-    width: 100%;
-    }
-    
-        #air2 {
-            height: 90%;
-            position: relative;
-        }
-        #bl2{
-            width: 15vw;
-            height: 30vh;
-            position: absolute;
-            left: 60%;
-    bottom: 30%;
-        }
