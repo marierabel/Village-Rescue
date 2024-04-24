@@ -19,6 +19,12 @@
     width: 10vw;
     height: 5vh;
 }
+#timeRemaining {
+    display: block;
+    width: 10vw;
+    height: 5vh;
+    margin-left: 4vw;
+}
 #navGame {
     width: 50vw;
     height: 5vh;

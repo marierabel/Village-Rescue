@@ -16,6 +16,17 @@ window.addEventListener("keydown", arrow_keys_handler, false);
 generalWidth = visualViewport.width;
 
 let charDirection = [];
+
+/* Définition chrono */
+let timeRemaining = 180;
+const minutes = Math.floor(timeRemaining / 60)
+  .toString()
+  .padStart(2, "0");
+const seconds = (timeRemaining % 60).toString().padStart(2, "0");
+
+const timeRemainingContainer = document.getElementById("timeRemaining");
+timeRemainingContainer.innerText = `${minutes}:${seconds}`;
+
 /* Définition variable jeu */
 let lifePoint = 20;
 const contLP = document.querySelector("#life");
@@ -417,6 +428,22 @@ const btnStart = document.querySelector("#startGame");
 
 btnStart.addEventListener("click", (event) => {
   game(persoMoi);
+  /* window.scrollBy({
+    behavior: "linear",
+    left: 0,
+  });*/
+
+  /* timer */
+  let timer = setInterval(() => {
+    timeRemaining--;
+    timeRemainingContainer.textContent = `${Math.floor(timeRemaining / 60)
+      .toString()
+      .padStart(2, "0")}:${(timeRemaining % 60).toString().padStart(2, "0")}`;
+    if (timeRemaining <= 0) {
+      clearInterval(timer);
+      showResults();
+    }
+  }, 1000);
   console.log(villages);
   //console.log("btnstart");
 });
@@ -548,7 +575,7 @@ function game(persoMoi) {
       const plat = platEl.pl.getBoundingClientRect();
       //console.log(moiRect.bottom, plat.bottom);
       if (
-        moiRect.top > plat.top &&
+        moiRect.top >= plat.top &&
         moiRect.bottom > plat.bottom &&
         moiRect.top <= plat.bottom &&
         ((moiRect.left > plat.left && moiRect.left < plat.right) ||
