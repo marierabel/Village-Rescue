@@ -11,7 +11,7 @@
 #startGame {
     width: 10vw;
     height: 5vh;
-    background-color: yellow;
+    background-color: yellowgreen;
     display: block;
 }
 #life {
@@ -20,26 +20,46 @@
     height: 5vh;
 }
 #navGame {
-    width: 100vw;
+    width: 50vw;
     height: 5vh;
+    top: 0px;
+    left: 0px;
     position: sticky;
     display: flex;
     flex-direction: row;
 }
 /* mise en forme bloque principal & classes générales */
 .bloque {
-    background-color: red;
     position: absolute;
-    overscroll-behavior: contain;
+}
+.rouge {
+    background-color: red;
+}
+.invisible {
+    background-color: brown;
 }
 
-#bl7 {
+#id8 {
     animation: platMove 2.5s infinite ease-in-out;
 }
 @keyframes platMove {
     
     50% {
         transform: translateX(150px)
+    }
+}
+
+#id10 {
+animation: platdis 8s infinite linear;
+}
+
+@keyframes platdis {
+    20% {
+        display: none;
+    }
+
+    50% {
+        display: none;
     }
 }
 
@@ -93,6 +113,21 @@
    
 }
 
+@keyframes mt5Move {
+    50% {
+        transform: translateX(500px);
+    }
+}
+
+@keyframes mt6Move {
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
 #mstr1 {
     animation: mt1Move 4s infinite linear;
 }
@@ -100,6 +135,34 @@
 #mstr2 {
         animation: mt2Move 6s infinite linear;
         animation-delay: 3s;
+}
+
+#mstr5 {
+    animation: mt5Move 10s infinite ease-in-out;
+}
+
+#mstr6 {
+    animation: mt6Move 6s infinite linear;
+}
+
+/*css food*/
+
+.food {
+    background-color: green;
+    position: absolute;
+}
+.hidden {
+    display: none;
+}
+
+/*css village*/
+
+.village {
+    position: absolute;
+    background-color: yellow;
+}
+.hidden {
+    display: none;
 }
 
 /* animation jump

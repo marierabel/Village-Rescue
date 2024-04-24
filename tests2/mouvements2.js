@@ -21,6 +21,10 @@ let lifePoint = 20;
 const contLP = document.querySelector("#life");
 contLP.textContent = lifePoint;
 let immute = "";
+let save = "";
+let villageSaved = 0;
+const contVS = document.querySelector("#vilsav");
+contVS.textContent = `${villageSaved}/6`;
 
 /*définiton persoMoi*/
 const persoMoi = {
@@ -40,55 +44,204 @@ platformEl.forEach((pl) => {
 });
 
 const sizeAndPositionPt = [
-  { width: generalWidth * 2, height: generalWidth * 0.1, bottom: 0, left: 0 },
+  { width: generalWidth * 1.2, height: generalWidth * 0.1, bottom: 0, left: 0 },
+  //1
   {
     width: generalWidth * 0.6,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.16,
     left: generalWidth * 0.18,
   },
+  //2
   {
     width: generalWidth * 0.3,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.26,
     left: generalWidth * 0.04,
   },
+  //3
   {
     width: generalWidth * 0.3,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.26,
     left: generalWidth * 0.44,
   },
+  //4
   {
     width: generalWidth * 0.05,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.36,
     left: generalWidth * 0.04,
   },
+  //5
   {
     width: generalWidth * 0.05,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.46,
     left: generalWidth * 0.14,
   },
+  //6
   {
     width: generalWidth * 0.2,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.3,
   },
+  //7
   {
     width: generalWidth * 0.12,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.51,
   },
+  //8
+  {
+    width: generalWidth * 0.08,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.34,
+    left: generalWidth * 1.1,
+  },
+  //9
+  {
+    width: generalWidth * 0.16,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.25,
+    left: generalWidth * 1.25,
+  },
+  //10
+  {
+    width: generalWidth * 0.24,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.42,
+    left: generalWidth * 0.8,
+  },
+  //11
+  {
+    width: generalWidth * 0.55,
+    height: generalWidth * 0.1,
+    bottom: generalWidth * 0,
+    left: generalWidth * 1.48,
+  },
+  //12
+  {
+    width: generalWidth * 0.34,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.16,
+    left: generalWidth * 1.6,
+  },
+  //13
+  {
+    width: generalWidth * 0.2,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.24,
+    left: generalWidth * 1.83,
+  },
+  //14
+  {
+    width: generalWidth * 0.17,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.32,
+    left: generalWidth * 1.86,
+  },
+  //15
+  {
+    width: generalWidth * 0.008,
+    height: generalWidth * 0.07,
+    bottom: generalWidth * 0.23,
+    left: generalWidth * 1.6,
+  },
+  //16
+  {
+    width: generalWidth * 0.008,
+    height: generalWidth * 0.07,
+    bottom: generalWidth * 0.3,
+    left: generalWidth * 1.7,
+  },
+  //17
+  {
+    width: generalWidth * 0.008,
+    height: generalWidth * 0.07,
+    bottom: generalWidth * 0.38,
+    left: generalWidth * 1.6,
+  },
+  //18
+  {
+    width: generalWidth * 0.008,
+    height: generalWidth * 0.07,
+    bottom: generalWidth * 0.45,
+    left: generalWidth * 1.7,
+  },
+  //19
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.48,
+    left: generalWidth * 1.5,
+  },
+  //20
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.07,
+    left: generalWidth * 1.2,
+  },
+  //21
+  {
+    width: generalWidth * 0.18,
+    height: generalWidth * 0.3,
+    bottom: generalWidth * 0.1,
+    left: generalWidth * 0.85,
+  },
+  //22
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.24,
+    left: generalWidth * 1.607,
+  },
+  //23
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.31,
+    left: generalWidth * 1.682,
+  },
+  //24
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.39,
+    left: generalWidth * 1.607,
+  },
+  //25
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.46,
+    left: generalWidth * 1.682,
+  },
+  //26
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.45,
+    left: generalWidth * 1.595,
+  },
+  //27
+  {
+    width: generalWidth * 0.01,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.07,
+    left: generalWidth * 1.4,
+  },
+  //28
   {
     width: generalWidth * 0.2,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.8,
   },
+  //29
 ];
 for (let i = 0; i < platforms.length; i++) {
   platforms[i].pl.style.width = sizeAndPositionPt[i].width + "px";
@@ -114,18 +267,49 @@ const sizeAndPositionMt = [
     bottom: generalWidth * 0.168,
     left: generalWidth * 0.32,
   },
+  //1
   {
     width: generalWidth * 0.03,
     height: generalWidth * 0.03,
     bottom: generalWidth * 0.268,
     left: generalWidth * 0.46,
   },
+  //2
   {
-    width: generalWidth * 0.05,
+    width: generalWidth * 0.048,
     height: generalWidth * 0.01,
     bottom: generalWidth * 0.35,
-    left: generalWidth * 0.04,
+    left: generalWidth * 0.041,
   },
+  //3
+  {
+    width: generalWidth * 0.048,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.45,
+    left: generalWidth * 0.141,
+  },
+  //4
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.37,
+    left: generalWidth * 0.95,
+  },
+  //5
+  {
+    width: generalWidth * 0.008,
+    height: generalWidth * 0.28,
+    bottom: generalWidth * 0.19,
+    left: generalWidth * 1.76,
+  },
+  //6
+  {
+    width: generalWidth * 0.14,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.31,
+    left: generalWidth * 1.87,
+  },
+  //7
 ];
 for (let i = 0; i < monsters.length; i++) {
   monsters[i].mt.style.width = sizeAndPositionMt[i].width + "px";
@@ -134,12 +318,106 @@ for (let i = 0; i < monsters.length; i++) {
   monsters[i].mt.style.left = sizeAndPositionMt[i].left + "px";
 }
 
+/* Définition foods */
+
+const foods = [];
+const itemFood = document.querySelectorAll(".food");
+itemFood.forEach((fd) => {
+  foods.push({ fd });
+});
+
+const sizeAndPositionFd = [
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.02,
+    bottom: generalWidth * 0.112,
+    left: generalWidth * 0.65,
+  },
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.02,
+    bottom: generalWidth * 0.28,
+    left: generalWidth * 0.05,
+  },
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.02,
+    bottom: generalWidth * 0.1,
+    left: generalWidth * 1.5,
+  },
+  {
+    width: generalWidth * 0.02,
+    height: generalWidth * 0.02,
+    bottom: generalWidth * 0.3,
+    left: generalWidth * 1.63,
+  },
+];
+for (let i = 0; i < foods.length; i++) {
+  foods[i].fd.style.width = sizeAndPositionFd[i].width + "px";
+  foods[i].fd.style.height = sizeAndPositionFd[i].height + "px";
+  foods[i].fd.style.bottom = sizeAndPositionFd[i].bottom + "px";
+  foods[i].fd.style.left = sizeAndPositionFd[i].left + "px";
+}
+
+/* Définition village */
+
+const villages = [];
+const villageHab = document.querySelectorAll(".village");
+villageHab.forEach((vl) => {
+  villages.push({ vl });
+});
+const sizeAndPositionVl = [
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.47,
+    left: generalWidth * 0.15,
+  },
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.17,
+    left: generalWidth * 0.7,
+  },
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.1,
+    left: generalWidth * 0.81,
+  },
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.43,
+    left: generalWidth * 1,
+  },
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.17,
+    left: generalWidth * 1.9,
+  },
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.33,
+    left: generalWidth * 1.95,
+  },
+];
+for (let i = 0; i < villages.length; i++) {
+  villages[i].vl.style.width = sizeAndPositionVl[i].width + "px";
+  villages[i].vl.style.height = sizeAndPositionVl[i].height + "px";
+  villages[i].vl.style.bottom = sizeAndPositionVl[i].bottom + "px";
+  villages[i].vl.style.left = sizeAndPositionVl[i].left + "px";
+}
+
 /* Fonction Game Start */
 
 const btnStart = document.querySelector("#startGame");
 
 btnStart.addEventListener("click", (event) => {
   game(persoMoi);
+  console.log(villages);
   //console.log("btnstart");
 });
 let counter = 10;
@@ -188,6 +466,8 @@ function game(persoMoi) {
         }
       }
       isItHurting(monsters);
+      isItHealing(foods);
+      isItSaving(villages);
     }, 30);
   }
 
@@ -216,10 +496,27 @@ function game(persoMoi) {
         if (!charDirection.includes("jump") && colliding.includes("bottom")) {
           charDirection.push("jump");
           counter = 10;
-          //console.log("jump hello");
-          //motion(charDirection);
-          break;
         }
+        //console.log("jump hello");
+        //motion(charDirection);
+        break;
+      case "Shift":
+        let possible = "no";
+        for (let i = 0; i < villages.length; i++) {
+          if (
+            save === "yes you can" &&
+            !villages[i].vl.classList.contains("hidden")
+          ) {
+            villages[i].vl.classList.add("hidden");
+            possible = "yes";
+            villageSaved++;
+            contVS.textContent = `${villageSaved}/6`;
+          }
+          if (possible === "yes") {
+            save = "no sorry";
+          }
+        }
+        break;
     }
   });
   document.addEventListener("keyup", (e) => {
@@ -304,15 +601,15 @@ function game(persoMoi) {
         behavior: "smooth",
         left: Math.floor(visualViewport.width * 0.25),
       });
-      console.log("left");
+      //console.log("left");
     }
     if (playerRectRight < 280) {
       window.scrollBy({
         behavior: "smooth",
         left: -Math.floor(visualViewport.width * 0.25),
       });
-      console.log("right");
-      console.log(visualViewport.pageLeft);
+      //console.log("right");
+      //console.log(visualViewport.pageLeft);
     }
 
     //console.log(colliding);
@@ -330,17 +627,71 @@ function game(persoMoi) {
             moiRect.bottom >= monstRect.top)) &&
         immute !== "on"
       ) {
-        lifePoint -= 2;
+        lifePoint = lifePoint - 2 > 0 ? lifePoint - 2 : 0;
         contLP.textContent = lifePoint;
         immute = "on";
         setTimeout(() => {
           immute = "off";
-        }, 300);
+        }, 2000);
         console.log("hurt");
       }
     }
     return life;
   }
+  function isItHealing(foods) {
+    const moiRect = persoMoi.el.getBoundingClientRect();
+    for (const item of foods) {
+      const foodRect = item.fd.getBoundingClientRect();
+      if (
+        ((((moiRect.right >= foodRect.left && moiRect.right < foodRect.right) ||
+          (moiRect.left <= foodRect.right && moiRect.left > foodRect.left)) &&
+          ((moiRect.top > foodRect.top && moiRect.top <= foodRect.bottom) ||
+            (moiRect.bottom < foodRect.bottom &&
+              moiRect.bottom >= foodRect.top))) ||
+          (foodRect.left >= moiRect.left &&
+            foodRect.top >= moiRect.top &&
+            foodRect.right <= moiRect.right &&
+            foodRect.bottom <= moiRect.bottom)) &&
+        immute !== "on" &&
+        item.fd.style.backgroundColor !== "black"
+      ) {
+        item.fd.style.backgroundColor = "black";
+        lifePoint = lifePoint + 1 < 20 ? lifePoint + 1 : 20;
+        contLP.textContent = lifePoint;
+        console.log("heal");
+        immute = "on";
+        setTimeout(() => {
+          immute = "off";
+        }, 2000);
+      }
+    }
+    return life;
+  }
+  function isItSaving(villages) {
+    const moiRect = persoMoi.el.getBoundingClientRect();
+    for (const ppl of villages) {
+      const villageRect = ppl.vl.getBoundingClientRect();
+      if (
+        (((moiRect.right >= villageRect.left &&
+          moiRect.right < villageRect.right) ||
+          (moiRect.left <= villageRect.right &&
+            moiRect.left > villageRect.left)) &&
+          ((moiRect.top > villageRect.top &&
+            moiRect.top <= villageRect.bottom) ||
+            (moiRect.bottom < villageRect.bottom &&
+              moiRect.bottom >= villageRect.top))) ||
+        (villageRect.left >= moiRect.left &&
+          villageRect.top >= moiRect.top &&
+          villageRect.right <= moiRect.right &&
+          villageRect.bottom <= moiRect.bottom)
+      ) {
+        console.log("save him");
+        save = "yes you can";
+      }
+    }
+    return save;
+  }
+
   motion();
 }
 /*case "ArrowUp":
