@@ -103,7 +103,7 @@ const sizeAndPositionPt = [
     width: generalWidth * 0.2,
     height: generalWidth * 0.015,
     bottom: generalWidth * 0.42,
-    left: generalWidth * 0.3,
+    left: generalWidth * 0.27,
   },
   //7
   {
