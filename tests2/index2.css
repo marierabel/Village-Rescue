@@ -212,38 +212,41 @@ animation: platdis 8s infinite linear;
     background-image: url("./assets/personnages/droite/stillD.png");
    background-size: cover;
    background-repeat: no-repeat;
+   background-position: 40%;
 }
 
 .stillG {
     background-image: url("./assets/personnages/gauche/stillG.png");
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: 50%;
+   background-position: 65%;
 }
 
 .runR {
     background-image: url("./assets/personnages/droite/runD.gif");
    background-size: cover;
    background-repeat: no-repeat;
+   background-position: 45%;
 }
 .runG {
     background-image: url("./assets/personnages/gauche/runG.gif");
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: 50%;
+   background-position: 65%;
 }
 
 .jumpD {
     background-image: url("./assets/personnages/droite/jumpD1.png");
    background-size: cover;
    background-repeat: no-repeat;
+   background-position: 45%;
 }
 
 .jumpG {
     background-image: url("./assets/personnages/gauche/jumpG.png");
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: 50%;
+   background-position: 65%;
 }
 
 
@@ -280,22 +283,21 @@ animation: platdis 8s infinite linear;
 
 /*css monstres*/
 .monster {
-    background-color: orchid;
     position: absolute; 
     z-index: 9;
 }
 
 @keyframes mt1Move {
-    
-    1% {transform: translate(0px, -10px);}
-    5% {transform: translate(0px,0px);}
+    1% {transform: translate(0px, -10px) scaleX(-1);}
+    5% {transform: translate(0px,0px) scaleX(-1);}
     47% {
-        transform: translate(300px,0px);
+        transform: translate(300px,0px) scaleX(-1);
     }
-    48% {transform: translate(300px, -10px);}
-    52% {transform: translate(300px,0px);}
+    48% {transform: translate(300px, -10px) scaleX(-1);
+        }
+    52% {transform: translate(300px,0px) scaleX(1);}
     100% {
-        transform: translate(0px,0px);
+        transform: translate(0px,0px) scaleX(1);
     }
    
 }
@@ -303,41 +305,54 @@ animation: platdis 8s infinite linear;
 @keyframes mt2Move {
     
     10% {
-        transform: translate(0px,0px);
+        transform: translate(0px,0px) scaleX(-1);
     }
-    15% {transform: translate(0px, -10px);}
+    15% {transform: translate(0px, -10px) scaleX(-1);}
     20% {
-        transform: translate(0px,0px); 
+        transform: translate(0px,0px) scaleX(-1); 
     }
-    40% {transform: translate(120px, 0px);}
-    50% {transform: translate(50px,0px);}
+    40% {transform: translate(120px, 0px) scaleX(1);}
+    50% {transform: translate(50px,0px) scaleX(-1);}
     70% {
-        transform: translate(240px,0px);
+        transform: translate(240px,0px) scaleX(1);
     }
     85% {
-        transform: translate(100px,0px)
+        transform: translate(100px,0px) scaleX(1);
     }
     90% {
-        transform: translate(80px,0px);
+        transform: translate(80px,0px) scaleX(1);
     }
    
 }
 
 @keyframes mt5Move {
-    50% {
-        transform: translateX(500px);
+    49% { transform: translateX(500px) scaleX(1);}
+    51% {
+        transform: translateX(500px) scaleX(-1);
+    }
+    98% {
+        transform: scaleX(-1);
     }
 }
 
 @keyframes mt8Move {
-    50% {
-        transform: translate(500px, -40px);
+    49% {
+        transform: translate(500px, -40px) scaleX(-1);
+    }
+    51% {
+        transform: translate(500px, -40px) scaleX(1);
     }
     80% {
         transform: translate(300px, 20px);
     }
     90% {
         transform: translate(180px, -40px);
+    }
+    99% {
+        transform: translate(0px, 0px) scaleX(1);
+    }
+    100% {
+        transform: translate(0px, 0px) scaleX(-1);
     }
     
 }
@@ -351,6 +366,7 @@ animation: platdis 8s infinite linear;
     }
 }
 @keyframes mt10Move {
+   
     30% {
         display: none;
         transform: translateX(0px);
@@ -367,33 +383,85 @@ animation: platdis 8s infinite linear;
     95% {
         transform: translateX(50px);
     }
+    100% {
+        transform: rotate(0.5turn);
+    }
  
 
 }
 
 #mstr1 {
+    transform: scaleX(-1);
     animation: mt1Move 4s infinite linear;
+    background-image: url("./assets/monstres/mstr1.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #mstr2 {
+    transform: scaleX(-1);
         animation: mt2Move 6s infinite linear;
         animation-delay: 3s;
+        background-image: url("./assets/monstres/mstr2.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#mstr3 {
+    transform: scaleY(-1);
+    background-image: url("./assets/monstres/mstrpics.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#mstr4 {
+    transform: scaleY(-1);
+    background-image: url("./assets/monstres/mstrpics.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #mstr5 {
+    transform: scaleX(1);
     animation: mt5Move 10s infinite ease-in-out;
+    background-image: url("./assets/monstres/mstr4.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-
 #mstr6 {
     animation: mt6Move 6s infinite linear;
+    background-image: url("./assets/monstres/mstrbat.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+#mstr7 {
+    transform: scaleY(-1);
+    background-image: url("./assets/monstres/mstrpics.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 #mstr8 {
-animation : mt8Move 10s infinite linear;
+    transform: scaleX(-1);
+    animation : mt8Move 10s infinite linear;
 animation-delay: 2s;
+    background-image: url("./assets/monstres/mstr5.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+#mstr9{
+    background-image: url("./assets/monstres/mstrpics.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 #mstr10 {
     animation : mt10Move 8s infinite linear;
+    background-image: url("./assets/monstres/mstr3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
 }
 
 /*css food*/

@@ -47,11 +47,12 @@ contVS.textContent = `${villageSaved}/6`;
 const persoMoi = {
   el: document.querySelector("#moi"),
   x: 0,
-  size: generalWidth * 0.029,
+  sizeX: generalWidth * 0.03,
+  sizeY: generalWidth * 0.045,
   moveStep: generalWidth * 0.01,
 };
-persoMoi.el.style.width = persoMoi.size + "px";
-persoMoi.el.style.height = persoMoi.size + "px";
+persoMoi.el.style.width = persoMoi.sizeX + "px";
+persoMoi.el.style.height = persoMoi.sizeY + "px";
 
 /*définition plateformes*/
 const platforms = [];
@@ -407,37 +408,37 @@ villageHab.forEach((vl) => {
 const sizeAndPositionVl = [
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.44,
     left: generalWidth * 0.15,
   },
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.17,
     left: generalWidth * 0.7,
   },
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.1,
     left: generalWidth * 0.81,
   },
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.43,
     left: generalWidth * 1,
   },
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.17,
     left: generalWidth * 1.9,
   },
   {
     width: generalWidth * 0.035,
-    height: generalWidth * 0.035,
+    height: generalWidth * 0.045,
     bottom: generalWidth * 0.33,
     left: generalWidth * 1.95,
   },
