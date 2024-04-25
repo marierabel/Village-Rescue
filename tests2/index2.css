@@ -2,8 +2,14 @@
     margin: 0;
 }
 
+#transition {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+}
 
-#gameFrame {
+#gameFrame { 
     position: relative;
     width: 200vw;
     height: 100vh;
@@ -38,14 +44,63 @@
 .bloque {
     position: absolute;
 }
-.rouge {
-    background-color: red;
-}
 .invisible {
-    background-color: brown;
+    opacity: 0%;
+    background-color: black;
+}
+
+#id1 {
+    background-image: url("./assets/plateformes/essai.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: visible;
+    z-index: 3;
+}
+#id2 > img {
+    width: 100%;
+}
+#id2 {
+    z-index: 2;
+}
+
+#id3 > img {
+    width: 100%;
+}
+#id3 {
+    z-index: 1;
+}
+
+#id4 > img {
+    width: 100%;
+}
+#id4 {
+    z-index: 1;
+}
+#id5 > img {
+    width: 100%;
+}
+#id5 {
+    z-index: 1;
+}
+#id6 > img {
+    width: 100%;
+}
+#id6 {
+    z-index: 1;
+}
+#id7 > img {
+    width: 100%;
+}
+#id7 {
+    z-index: 1;
+}
+
+#id8 > img {
+    width: 100%;
 }
 
 #id8 {
+    z-index: 1;
     animation: platMove 2.5s infinite ease-in-out;
 }
 @keyframes platMove {
@@ -55,30 +110,179 @@
     }
 }
 
+#id9 > img {
+    width: 100%;
+}
+#id9 {
+    z-index: 1;
+}
+
+#id10 > img {
+    width: 100%;
+}
+
 #id10 {
+    z-index: 1;
 animation: platdis 8s infinite linear;
 }
+#id12 {
+    background-image: url("./assets/plateformes/essai.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: visible;
+    z-index: 4;
+}
+#id13 > img {
+    width: 100%;
+}
+#id13 {
+    z-index: 3;
+}
+
+#id14 > img {
+    width: 100%;
+}
+#id14 {
+    z-index: 2;
+}
+
+#id15 > img {
+    width: 100%;
+}
+#id15 {
+    z-index: 1;
+}
+#id16 > img {
+    width: 100%;
+}
+#id16 {
+    z-index: 1;
+}
+#id17 > img {
+    width: 100%;
+}
+#id17 {
+    z-index: 1;
+}
+#id18 > img {
+    width: 100%;
+}
+#id18 {
+    z-index: 1;
+}
+#id19 > img {
+    width: 100%;
+}
+#id19 {
+    z-index: 1;
+}
+.deco {
+    position: absolute;
+    display: block;
+}
+.img22 {
+    z-index: 2;
+}
+
 
 @keyframes platdis {
     20% {
         display: none;
     }
 
-    50% {
+    70% {
         display: none;
     }
 }
 
+#id11 > img {
+    width: 100%;
+}
+#id11 {
+    z-index: 1;
+}
+
 /*css perso*/
 #moi {
-   background-color: blue;
    position: absolute;
+   z-index: 10;
+}
+
+.still {
+    background-image: url("./assets/personnages/droite/stillD.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.stillG {
+    background-image: url("./assets/personnages/gauche/stillG.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50%;
+}
+
+.runR {
+    background-image: url("./assets/personnages/droite/runD.gif");
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+.runG {
+    background-image: url("./assets/personnages/gauche/runG.gif");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50%;
+}
+
+.jumpD {
+    background-image: url("./assets/personnages/droite/jumpD1.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.jumpG {
+    background-image: url("./assets/personnages/gauche/jumpG.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50%;
+}
+
+
+    /* 40% { 
+        background-image: url("./assets/personnages/droite/runD2.png");
+        background-size: cover;
+   background-repeat: no-repeat;
+    }
+    60% {
+        background-image: url("./assets/personnages/droite/runD3.png");
+        background-size: cover;
+   background-repeat: no-repeat;
+    }
+    70% {
+        background-image: url("./assets/personnages/droite/runD4.png");
+        background-size: cover;
+   background-repeat: no-repeat;
+    }
+    80% {
+        background-image: url("./assets/personnages/droite/runD5.png");
+        background-size: cover;
+   background-repeat: no-repeat;
+    } }*/
+
+.hurt {
+    animation: hurt 0.5s infinite linear;
+}
+
+@keyframes hurt {
+    50% {
+        opacity: 20%;
+    }
 }
 
 /*css monstres*/
 .monster {
     background-color: orchid;
     position: absolute; 
+    z-index: 9;
 }
 
 @keyframes mt1Move {
@@ -125,6 +329,19 @@ animation: platdis 8s infinite linear;
     }
 }
 
+@keyframes mt8Move {
+    50% {
+        transform: translate(500px, -40px);
+    }
+    80% {
+        transform: translate(300px, 20px);
+    }
+    90% {
+        transform: translate(180px, -40px);
+    }
+    
+}
+
 @keyframes mt6Move {
     50% {
         transform: rotate(180deg);
@@ -132,6 +349,26 @@ animation: platdis 8s infinite linear;
     100% {
         transform: rotate(180deg);
     }
+}
+@keyframes mt10Move {
+    30% {
+        display: none;
+        transform: translateX(0px);
+    }
+
+
+    60% {
+        display: none;
+        transform: translateX(-130px);
+    }
+    80% {
+        transform: translateX(-130px);
+    }
+    95% {
+        transform: translateX(50px);
+    }
+ 
+
 }
 
 #mstr1 {
@@ -150,12 +387,21 @@ animation: platdis 8s infinite linear;
 #mstr6 {
     animation: mt6Move 6s infinite linear;
 }
+#mstr8 {
+animation : mt8Move 10s infinite linear;
+animation-delay: 2s;
+}
+
+#mstr10 {
+    animation : mt10Move 8s infinite linear;
+}
 
 /*css food*/
 
 .food {
     background-color: green;
     position: absolute;
+    z-index: 7;
 }
 .hidden {
     display: none;
@@ -165,10 +411,63 @@ animation: platdis 8s infinite linear;
 
 .village {
     position: absolute;
-    background-color: yellow;
+    animation : help 3s infinite linear;
+    z-index: 8;
 }
 .hidden {
     display: none;
+}
+
+#vlg1 {
+    background-image: url("./assets/personnages/villageois/villageois1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#vlg2 {
+    background-image: url("./assets/personnages/villageois/villageois2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#vlg3 {
+    background-image: url("./assets/personnages/villageois/villageois3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#vlg4 {
+    background-image: url("./assets/personnages/villageois/villageois4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#vlg5 {
+    background-image: url("./assets/personnages/villageois/villageois5.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#vlg6 {
+    background-image: url("./assets/personnages/villageois/villageois6.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@keyframes help {
+    20% {
+        transform: translateY(-10px);
+    }
+    30% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); 
+    }
+    60% {
+        transform: translateY(0px);
+    }
+
 }
 
 /* animation jump

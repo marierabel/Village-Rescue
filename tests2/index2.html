@@ -8,35 +8,81 @@
     <!--<script type="module" src=""></script>-->
   </head>
   <body>
-    <div id="gameFrame">
+    <div id="transition">
+      <div class="title">Village Rescue</div>
+      <div class="etat"></div>
+      <div class="msg1"></div>
+      <div class="msg2"></div>
+      <button id="startGame">Start Game</button>
+    </div>
+    <div id="gameFrame" class="hidden">
       <div id="navGame">
-        <button id="startGame">Start Game</button>
         <div id="life"></div>
         <div id="vilsav"></div>
         <div id="timeRemaining">Remaining Time: <span>00:00</span></div>
       </div>
       <div class="bloque rouge" id="id1"></div>
-      <div class="bloque rouge" id="id2"></div>
-      <div class="bloque rouge" id="id3"></div>
-      <div class="bloque rouge" id="id4"></div>
-      <div class="bloque rouge" id="id5"></div>
-      <div class="bloque rouge" id="id6"></div>
-      <div class="bloque rouge" id="id7"></div>
-      <div class="bloque rouge" id="id8"></div>
-      <div class="bloque rouge" id="id9"></div>
-      <div class="bloque rouge" id="id10"></div>
-      <div class="bloque rouge" id="id11"></div>
+      <div class="bloque rouge" id="id2">
+        <img src="./assets/plateformes/essai2.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id3">
+        <img src="./assets/plateformes/essai3.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id4">
+        <img src="./assets/plateformes/essai3.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id5">
+        <img src="./assets/plateformes/ileessai.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id6">
+        <img src="./assets/plateformes/ileessai.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id7">
+        <img src="./assets/plateformes/ileessai2.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id8">
+        <img src="./assets/plateformes/ilemove.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id9">
+        <img src="./assets/plateformes/ilemove.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id10">
+        <img src="./assets/plateformes/ilemove.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id11">
+        <img src="./assets/plateformes/ileessai2.png" alt="" />
+      </div>
       <div class="bloque rouge" id="id12"></div>
-      <div class="bloque rouge" id="id13"></div>
-      <div class="bloque rouge" id="id14"></div>
-      <div class="bloque rouge" id="id15"></div>
-      <div class="bloque rouge" id="id16"></div>
-      <div class="bloque rouge" id="id17"></div>
-      <div class="bloque rouge" id="id18"></div>
-      <div class="bloque rouge" id="id19"></div>
+      <div class="bloque rouge" id="id13">
+        <img src="./assets/plateformes/essai3.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id14">
+        <img src="./assets/plateformes/essai5.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id15">
+        <img src="./assets/plateformes/essai3.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id16">
+        <img src="./assets/plateformes/essaivertical.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id17">
+        <img src="./assets/plateformes/essaivertical.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id18">
+        <img src="./assets/plateformes/essaivertical.png" alt="" />
+      </div>
+      <div class="bloque rouge" id="id19">
+        <img src="./assets/plateformes/essaivertical.png" alt="" />
+      </div>
       <div class="bloque invisible" id="id20"></div>
       <div class="bloque invisible" id="id21"></div>
       <div class="bloque invisible" id="id22"></div>
+      <img
+        class="deco"
+        id="img22"
+        src="./assets/décors/grandArbre.png"
+        alt=""
+      />
       <div class="bloque invisible" id="id23"></div>
       <div class="bloque invisible" id="id24"></div>
       <div class="bloque invisible" id="id25"></div>
@@ -50,6 +96,9 @@
       <div class="monster" id="mstr5"></div>
       <div class="monster" id="mstr6"></div>
       <div class="monster" id="mstr7"></div>
+      <div class="monster" id="mstr8"></div>
+      <div class="monster" id="mstr9"></div>
+      <div class="monster" id="mstr10"></div>
       <div class="food" id="food1"></div>
       <div class="food" id="food2"></div>
       <div class="food" id="food3"></div>
@@ -60,7 +109,7 @@
       <div class="village" id="vlg4"></div>
       <div class="village" id="vlg5"></div>
       <div class="village" id="vlg6"></div>
-      <div id="moi"></div>
+      <div id="moi" class="still"></div>
     </div>
     <!--<script src="./plateformes.js"></script>-->
     <script src="./mouvements2.js"></script>

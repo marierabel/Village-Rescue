@@ -18,7 +18,7 @@ generalWidth = visualViewport.width;
 let charDirection = [];
 
 /* Définition chrono */
-let timeRemaining = 180;
+let timeRemaining = 120;
 const minutes = Math.floor(timeRemaining / 60)
   .toString()
   .padStart(2, "0");
@@ -28,11 +28,17 @@ const timeRemainingContainer = document.getElementById("timeRemaining");
 timeRemainingContainer.innerText = `${minutes}:${seconds}`;
 
 /* Définition variable jeu */
-let lifePoint = 20;
+const transitionScreen = document.querySelector("#transition");
+const etat = document.querySelector(".etat");
+const messageUn = document.querySelector(".msg1");
+const messageDeux = document.querySelector(".msg2");
+const cadre = document.querySelector("#gameFrame");
+let lifePoint = 10;
 const contLP = document.querySelector("#life");
 contLP.textContent = lifePoint;
 let immute = "";
 let save = "";
+let look = "right";
 let villageSaved = 0;
 const contVS = document.querySelector("#vilsav");
 contVS.textContent = `${villageSaved}/6`;
@@ -41,7 +47,7 @@ contVS.textContent = `${villageSaved}/6`;
 const persoMoi = {
   el: document.querySelector("#moi"),
   x: 0,
-  size: generalWidth * 0.03,
+  size: generalWidth * 0.029,
   moveStep: generalWidth * 0.01,
 };
 persoMoi.el.style.width = persoMoi.size + "px";
@@ -59,70 +65,70 @@ const sizeAndPositionPt = [
   //1
   {
     width: generalWidth * 0.6,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.16,
     left: generalWidth * 0.18,
   },
   //2
   {
     width: generalWidth * 0.3,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.26,
     left: generalWidth * 0.04,
   },
   //3
   {
     width: generalWidth * 0.3,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.26,
     left: generalWidth * 0.44,
   },
   //4
   {
     width: generalWidth * 0.05,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.36,
     left: generalWidth * 0.04,
   },
   //5
   {
     width: generalWidth * 0.05,
-    height: generalWidth * 0.01,
-    bottom: generalWidth * 0.46,
+    height: generalWidth * 0.015,
+    bottom: generalWidth * 0.43,
     left: generalWidth * 0.14,
   },
   //6
   {
     width: generalWidth * 0.2,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.3,
   },
   //7
   {
     width: generalWidth * 0.12,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.51,
   },
   //8
   {
     width: generalWidth * 0.08,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.34,
     left: generalWidth * 1.1,
   },
   //9
   {
     width: generalWidth * 0.16,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.25,
     left: generalWidth * 1.25,
   },
   //10
   {
     width: generalWidth * 0.24,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.8,
   },
@@ -136,21 +142,21 @@ const sizeAndPositionPt = [
   //12
   {
     width: generalWidth * 0.34,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.16,
     left: generalWidth * 1.6,
   },
   //13
   {
     width: generalWidth * 0.2,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.24,
     left: generalWidth * 1.83,
   },
   //14
   {
     width: generalWidth * 0.17,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.32,
     left: generalWidth * 1.86,
   },
@@ -185,14 +191,14 @@ const sizeAndPositionPt = [
   //19
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.48,
     left: generalWidth * 1.5,
   },
   //20
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.07,
     left: generalWidth * 1.2,
   },
@@ -206,49 +212,49 @@ const sizeAndPositionPt = [
   //22
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.24,
     left: generalWidth * 1.607,
   },
   //23
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.31,
     left: generalWidth * 1.682,
   },
   //24
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.39,
     left: generalWidth * 1.607,
   },
   //25
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.46,
     left: generalWidth * 1.682,
   },
   //26
   {
     width: generalWidth * 0.02,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.45,
     left: generalWidth * 1.595,
   },
   //27
   {
     width: generalWidth * 0.01,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.07,
-    left: generalWidth * 1.4,
+    left: generalWidth * 1.35,
   },
   //28
   {
     width: generalWidth * 0.2,
-    height: generalWidth * 0.01,
+    height: generalWidth * 0.015,
     bottom: generalWidth * 0.42,
     left: generalWidth * 0.8,
   },
@@ -296,7 +302,7 @@ const sizeAndPositionMt = [
   {
     width: generalWidth * 0.048,
     height: generalWidth * 0.01,
-    bottom: generalWidth * 0.45,
+    bottom: generalWidth * 0.42,
     left: generalWidth * 0.141,
   },
   //4
@@ -321,6 +327,27 @@ const sizeAndPositionMt = [
     left: generalWidth * 1.87,
   },
   //7
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.29,
+    left: generalWidth * 1.2,
+  },
+  //8
+  {
+    width: generalWidth * 0.05,
+    height: generalWidth * 0.01,
+    bottom: generalWidth * 0.1,
+    left: generalWidth * 1.53,
+  },
+  //9
+  {
+    width: generalWidth * 0.03,
+    height: generalWidth * 0.03,
+    bottom: generalWidth * 0.43,
+    left: generalWidth * 0.93,
+  },
+  //10
 ];
 for (let i = 0; i < monsters.length; i++) {
   monsters[i].mt.style.width = sizeAndPositionMt[i].width + "px";
@@ -379,38 +406,38 @@ villageHab.forEach((vl) => {
 });
 const sizeAndPositionVl = [
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
-    bottom: generalWidth * 0.47,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
+    bottom: generalWidth * 0.44,
     left: generalWidth * 0.15,
   },
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
     bottom: generalWidth * 0.17,
     left: generalWidth * 0.7,
   },
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
     bottom: generalWidth * 0.1,
     left: generalWidth * 0.81,
   },
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
     bottom: generalWidth * 0.43,
     left: generalWidth * 1,
   },
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
     bottom: generalWidth * 0.17,
     left: generalWidth * 1.9,
   },
   {
-    width: generalWidth * 0.03,
-    height: generalWidth * 0.03,
+    width: generalWidth * 0.035,
+    height: generalWidth * 0.035,
     bottom: generalWidth * 0.33,
     left: generalWidth * 1.95,
   },
@@ -422,16 +449,54 @@ for (let i = 0; i < villages.length; i++) {
   villages[i].vl.style.left = sizeAndPositionVl[i].left + "px";
 }
 
-/* Fonction Game Start */
+/*Définitions déco*/
+
+const decorations = [];
+const deco = document.querySelectorAll(".deco");
+deco.forEach((dc) => {
+  decorations.push({ dc });
+});
+const sizeAndPositionDc = [
+  {
+    width: generalWidth * 0.31,
+    //height: generalWidth * 0.015,
+    bottom: generalWidth * 0.08,
+    left: generalWidth * 0.79,
+  },
+];
+for (let i = 0; i < decorations.length; i++) {
+  decorations[i].dc.style.width = sizeAndPositionDc[i].width + "px";
+  //decorations[i].dc.style.height = sizeAndPositionDc[i].height + "px";
+  decorations[i].dc.style.bottom = sizeAndPositionDc[i].bottom + "px";
+  decorations[i].dc.style.left = sizeAndPositionDc[i].left + "px";
+}
+
+/* Bouton start*/
 
 const btnStart = document.querySelector("#startGame");
 
 btnStart.addEventListener("click", (event) => {
+  cadre.classList.remove("hidden");
+  transitionScreen.classList.add("hidden");
   game(persoMoi);
   /* window.scrollBy({
     behavior: "linear",
     left: 0,
   });*/
+
+  console.log(villages);
+  //console.log("btnstart");
+});
+let counter = 10;
+let y = generalWidth * 0.2;
+let x = generalWidth * 0.1;
+persoMoi.el.style.left = x + "px";
+persoMoi.el.style.bottom = y + "px";
+
+/* Fonction Game Start */
+
+function game(persoMoi) {
+  Reset();
 
   /* timer */
   let timer = setInterval(() => {
@@ -444,31 +509,20 @@ btnStart.addEventListener("click", (event) => {
       showResults();
     }
   }, 1000);
-  console.log(villages);
-  //console.log("btnstart");
-});
-let counter = 10;
-let y = generalWidth * 0.2;
-let x = generalWidth * 0.1;
-persoMoi.el.style.left = x + "px";
-persoMoi.el.style.bottom = y + "px";
-const wichSection = ["a"];
-function game(persoMoi) {
-  //console.log("start");
   function motion() {
     move = setInterval(() => {
-      //console.log(charDirection, ">>>>");
+      console.log(lifePoint);
       const colliding = isItColliding(platforms);
       //console.log(colliding, "===");
       if (!charDirection.includes("jump") && !colliding.includes("bottom")) {
         y -= persoMoi.moveStep;
         persoMoi.el.style.bottom = y + "px";
       }
-      if (charDirection.includes("left")) {
+      if (charDirection.includes("left") && !colliding.includes("left")) {
         x -= persoMoi.moveStep;
         persoMoi.el.style.left = x + "px";
       }
-      if (charDirection.includes("right")) {
+      if (charDirection.includes("right") && !colliding.includes("right")) {
         x += persoMoi.moveStep;
         persoMoi.el.style.left = x + "px";
       }
@@ -488,6 +542,14 @@ function game(persoMoi) {
         }*/ else {
           setTimeout(() => {
             charDirection.splice(charDirection.indexOf("jump"), 1);
+            persoMoi.el.classList.remove("jumpD");
+            persoMoi.el.classList.remove("jumpG");
+            if (look === "right") {
+              persoMoi.el.classList.add("still");
+            }
+            if (look === "left") {
+              persoMoi.el.classList.add("stillG");
+            }
             //console.log("time out", counter);
           }, 100);
         }
@@ -495,6 +557,7 @@ function game(persoMoi) {
       isItHurting(monsters);
       isItHealing(foods);
       isItSaving(villages);
+      endGame();
     }, 30);
   }
 
@@ -509,12 +572,24 @@ function game(persoMoi) {
     switch (e.key) {
       case "ArrowLeft":
         charDirection.push("left");
+        persoMoi.el.classList.remove("still");
+        persoMoi.el.classList.remove("stillG");
+        persoMoi.el.classList.remove("jumpD");
+        persoMoi.el.classList.remove("jumpG");
+        persoMoi.el.classList.add("runG");
+        look = "left";
         //console.log("left hello");
         //motion(charDirection);
 
         break;
       case "ArrowRight":
         charDirection.push("right");
+        persoMoi.el.classList.remove("stillG");
+        persoMoi.el.classList.remove("still");
+        persoMoi.el.classList.remove("jumpD");
+        persoMoi.el.classList.remove("jumpG");
+        persoMoi.el.classList.add("runR");
+        look = "right";
         //console.log("right hello");
         //motion(charDirection);
 
@@ -524,17 +599,33 @@ function game(persoMoi) {
           charDirection.push("jump");
           counter = 10;
         }
+        if (look === "right") {
+          persoMoi.el.classList.remove("still");
+          persoMoi.el.classList.remove("stillG");
+          persoMoi.el.classList.remove("runG");
+          persoMoi.el.classList.remove("runD");
+          persoMoi.el.classList.add("jumpD");
+        }
+        if (look === "left") {
+          persoMoi.el.classList.remove("still");
+          persoMoi.el.classList.remove("stillG");
+          persoMoi.el.classList.remove("runG");
+          persoMoi.el.classList.remove("runD");
+          persoMoi.el.classList.add("jumpG");
+        }
         //console.log("jump hello");
         //motion(charDirection);
         break;
       case "Shift":
         let possible = "no";
         for (let i = 0; i < villages.length; i++) {
+          let save = isItSaving(villages);
+          console.log(save);
           if (
-            save === "yes you can" &&
-            !villages[i].vl.classList.contains("hidden")
+            save[0] === "yes you can" &&
+            !villages[save[1]].vl.classList.contains("hidden")
           ) {
-            villages[i].vl.classList.add("hidden");
+            villages[save[1]].vl.classList.add("hidden");
             possible = "yes";
             villageSaved++;
             contVS.textContent = `${villageSaved}/6`;
@@ -542,6 +633,7 @@ function game(persoMoi) {
           if (possible === "yes") {
             save = "no sorry";
           }
+          return villageSaved;
         }
         break;
     }
@@ -550,10 +642,14 @@ function game(persoMoi) {
     switch (e.key) {
       case "ArrowLeft":
         charDirection.splice(charDirection.indexOf("left"), 1);
+        persoMoi.el.classList.remove("runG");
+        persoMoi.el.classList.add("stillG");
         //console.log("left bye");
         break;
       case "ArrowRight":
         charDirection.splice(charDirection.indexOf("right"), 1);
+        persoMoi.el.classList.remove("runR");
+        persoMoi.el.classList.add("still");
         //console.log("right bye");
         break;
       case " ":
@@ -568,18 +664,27 @@ function game(persoMoi) {
   //console.log(platformsRect);
 
   function isItColliding(platforms) {
+    const limite = cadre.getBoundingClientRect();
     const moiRect = persoMoi.el.getBoundingClientRect();
     //console.log("fonction colliding");
     const colliding = [];
     for (const platEl of platforms) {
       const plat = platEl.pl.getBoundingClientRect();
+      const collisionhorizon =
+        (moiRect.left >= plat.left && moiRect.left <= plat.right) ||
+        (moiRect.right >= plat.left && moiRect.right <= plat.right) ||
+        (moiRect.left <= plat.left && moiRect.right >= plat.right);
+      const collisionvertical =
+        (moiRect.top <= plat.bottom && moiRect.top >= plat.top) ||
+        (moiRect.top >= plat.top && moiRect.bottom <= plat.bottom);
+
       //console.log(moiRect.bottom, plat.bottom);
       if (
-        moiRect.top >= plat.top &&
-        moiRect.bottom > plat.bottom &&
-        moiRect.top <= plat.bottom &&
-        ((moiRect.left > plat.left && moiRect.left < plat.right) ||
-          (moiRect.right > plat.left && moiRect.right < plat.right))
+        (moiRect.top >= plat.top &&
+          moiRect.bottom > plat.bottom &&
+          moiRect.top <= plat.bottom &&
+          collisionhorizon) ||
+        moiRect.top <= limite.top
       ) {
         colliding.push("top");
         //console.log(colliding);
@@ -588,33 +693,32 @@ function game(persoMoi) {
       if (
         moiRect.bottom < plat.bottom &&
         moiRect.bottom >= plat.top &&
-        moiRect.top < plat.top &&
-        ((moiRect.left > plat.left && moiRect.left < plat.right) ||
-          (moiRect.right > plat.left && moiRect.right < plat.right))
+        moiRect.top <= plat.top &&
+        collisionhorizon
       ) {
         colliding.push("bottom");
         //console.log(colliding);
         //return colliding;
       }
       if (
-        moiRect.left > plat.left &&
-        moiRect.left < plat.right &&
-        ((moiRect.bottom < plat.bottom && moiRect.bottom >= plat.top) ||
-          (moiRect.top <= plat.bottom && moiRect.top > plat.top))
+        (moiRect.left > plat.left &&
+          moiRect.left <= plat.right &&
+          collisionvertical) ||
+        moiRect.left <= limite.left
       ) {
         colliding.push("left");
         //return colliding;
       }
       if (
-        moiRect.right > plat.left &&
-        moiRect.right < plat.right &&
-        ((moiRect.bottom < plat.bottom && moiRect.bottom >= plat.top) ||
-          (moiRect.top <= plat.bottom && moiRect.top > plat.top))
+        (moiRect.right >= plat.left &&
+          moiRect.right < plat.right &&
+          collisionvertical) ||
+        moiRect.right >= limite.right
       ) {
         colliding.push("right");
         //return colliding;
       }
-
+      //console.log(colliding);
       /*if (colliding.length) {
         break;
       }*/
@@ -625,15 +729,15 @@ function game(persoMoi) {
     //console.log(playerRectRight);
     if (playerRectLeft / visualViewport.width > 0.49) {
       window.scrollBy({
-        behavior: "smooth",
-        left: Math.floor(visualViewport.width * 0.25),
+        behavior: "instant",
+        left: Math.floor(visualViewport.width * 0.1),
       });
       //console.log("left");
     }
-    if (playerRectRight < 280) {
+    if (playerRectRight < 250) {
       window.scrollBy({
-        behavior: "smooth",
-        left: -Math.floor(visualViewport.width * 0.25),
+        behavior: "instant",
+        left: -Math.floor(visualViewport.width * 0.15),
       });
       //console.log("right");
       //console.log(visualViewport.pageLeft);
@@ -657,13 +761,15 @@ function game(persoMoi) {
         lifePoint = lifePoint - 2 > 0 ? lifePoint - 2 : 0;
         contLP.textContent = lifePoint;
         immute = "on";
+        persoMoi.el.classList.add("hurt");
         setTimeout(() => {
           immute = "off";
+          persoMoi.el.classList.remove("hurt");
         }, 2000);
         console.log("hurt");
       }
     }
-    return life;
+    return lifePoint;
   }
   function isItHealing(foods) {
     const moiRect = persoMoi.el.getBoundingClientRect();
@@ -683,7 +789,7 @@ function game(persoMoi) {
         item.fd.style.backgroundColor !== "black"
       ) {
         item.fd.style.backgroundColor = "black";
-        lifePoint = lifePoint + 1 < 20 ? lifePoint + 1 : 20;
+        lifePoint = lifePoint + 1 < 10 ? lifePoint + 1 : 10;
         contLP.textContent = lifePoint;
         console.log("heal");
         immute = "on";
@@ -692,12 +798,12 @@ function game(persoMoi) {
         }, 2000);
       }
     }
-    return life;
+    return lifePoint;
   }
   function isItSaving(villages) {
     const moiRect = persoMoi.el.getBoundingClientRect();
-    for (const ppl of villages) {
-      const villageRect = ppl.vl.getBoundingClientRect();
+    for (let i = 0; i < villages.length; i++) {
+      const villageRect = villages[i].vl.getBoundingClientRect();
       if (
         (((moiRect.right >= villageRect.left &&
           moiRect.right < villageRect.right) ||
@@ -713,14 +819,57 @@ function game(persoMoi) {
           villageRect.bottom <= moiRect.bottom)
       ) {
         console.log("save him");
-        save = "yes you can";
+        save = ["yes you can", i];
       }
     }
     return save;
   }
 
+  function endGame() {
+    if (lifePoint === 0 || y < 0 || timeRemaining === 0 || villageSaved == 6) {
+      cadre.classList.add("hidden");
+      transitionScreen.classList.remove("hidden");
+      clearInterval(move);
+      if (
+        lifePoint === 0 ||
+        y < 0 ||
+        (timeRemaining === 0) & (villageSaved !== 6)
+      )
+        etat.textContent = "Game Over";
+      messageUn.textContent = `${villageSaved} villagers saved ...`;
+      messageDeux.textContent = `Would you like to try again ?`;
+      console.log("fini");
+    }
+  }
+  function Reset() {
+    timeRemaining = 120;
+    lifePoint = 10;
+    contLP.textContent = lifePoint;
+    save = "";
+    immute = "";
+    look = "right";
+    villageSaved = 0;
+    contVS.textContent = `${villageSaved}/6`;
+    counter = 10;
+    x = generalWidth * 0.1;
+    y = generalWidth * 0.1;
+    persoMoi.el.style.left = x + "px";
+    persoMoi.el.style.bottom = y + "px";
+    for (const pers of villages) {
+      pers.vl.classList.remove("hidden");
+    }
+    window.scrollBy({
+      behavior: "instant",
+      left: 0,
+    });
+    for (const item of foods) {
+      item.fd.style.backgroundColor = "green";
+    }
+  }
+
   motion();
 }
+
 /*case "ArrowUp":
         if (game.snake.direction === "down") {
           return;
