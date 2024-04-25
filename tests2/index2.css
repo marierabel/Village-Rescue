@@ -311,9 +311,16 @@ animation: platdis 8s infinite linear;
     20% {
         transform: translate(0px,0px) scaleX(-1); 
     }
+    21% {
+        transform: translate(0px,0px) scaleX(1); 
+    }
     40% {transform: translate(120px, 0px) scaleX(1);}
-    50% {transform: translate(50px,0px) scaleX(-1);}
+    50% {transform: translate(50px,0px) scaleX(1);}
+    51% {transform: translate(50px,0px) scaleX(-1);}
     70% {
+        transform: translate(240px,0px) scaleX(-1);
+    }
+    71% {
         transform: translate(240px,0px) scaleX(1);
     }
     85% {
