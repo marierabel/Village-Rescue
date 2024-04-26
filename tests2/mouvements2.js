@@ -35,7 +35,7 @@ const messageDeux = document.querySelector(".msg2");
 const cadre = document.querySelector("#gameFrame");
 let lifePoint = 10;
 const contLP = document.querySelector("#life");
-contLP.textContent = lifePoint;
+contLP.textContent = `${lifePoint}/10`;
 let immute = "";
 let save = "";
 let look = "right";
@@ -787,9 +787,10 @@ function game(persoMoi) {
             foodRect.right <= moiRect.right &&
             foodRect.bottom <= moiRect.bottom)) &&
         immute !== "on" &&
-        item.fd.style.backgroundColor !== "black"
+        !item.fd.classList.contains("vide")
       ) {
-        item.fd.style.backgroundColor = "black";
+        item.fd.classList.remove("plein");
+        item.fd.classList.add("vide");
         lifePoint = lifePoint + 1 < 10 ? lifePoint + 1 : 10;
         contLP.textContent = lifePoint;
         console.log("heal");
@@ -835,17 +836,22 @@ function game(persoMoi) {
         lifePoint === 0 ||
         y < 0 ||
         (timeRemaining === 0) & (villageSaved !== 6)
-      )
+      ) {
         etat.textContent = "Game Over";
-      messageUn.textContent = `${villageSaved} villagers saved ...`;
-      messageDeux.textContent = `Would you like to try again ?`;
-      console.log("fini");
+        messageUn.textContent = `${villageSaved} villagers saved ...`;
+        messageDeux.textContent = `Would you like to try again ?`;
+      }
+      if (villageSaved == 6) {
+        etat.textContent = "Congratulations";
+        messageUn.textContent = `${villageSaved} villagers saved ...`;
+        messageDeux.textContent = `Would you like to try again ?`;
+      }
     }
   }
   function Reset() {
     timeRemaining = 120;
     lifePoint = 10;
-    contLP.textContent = lifePoint;
+    contLP.textContent = `${lifePoint}/10`;
     save = "";
     immute = "";
     look = "right";
@@ -864,7 +870,8 @@ function game(persoMoi) {
       left: 0,
     });
     for (const item of foods) {
-      item.fd.style.backgroundColor = "green";
+      item.fd.classList.add("plein");
+      item.fd.classList.remove("vide");
     }
   }
 

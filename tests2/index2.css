@@ -2,34 +2,87 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: "titre";
+    src: url("./assets/FontFamily/titre/UltimateGameplayers.ttf");
+  }
+@font-face {
+    font-family: "texte";
+    src: url("./assets/FontFamily/autre/manaspc.ttf");
+}
+
 #transition {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: aqua;
+    background-image: url("./assets/villabck.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #gameFrame { 
     position: relative;
     width: 200vw;
     height: 100vh;
+    background-image: url("./assets/skybck.png");
+    background-size: cover;
+  background-repeat: no-repeat;
+  /*background: rgb(11,0,204);
+background: linear-gradient(180deg, rgba(11,0,204,1) 0%, rgba(255,248,211,1) 33%, rgba(0,212,255,1) 39%);*/
+overflow: hidden;
 }
 #startGame {
-    width: 10vw;
-    height: 5vh;
-    background-color: yellowgreen;
+    font-family: "texte";
+    font-size: 1.2rem;
+    width: 20vw;
+    height: 10vh;
     display: block;
+    cursor: pointer;
+  background: #ffffffb0;
+  border: 1px solid #ffad91;
+  outline: none;
+  transition: 1s ease-in-out;
 }
+
+#startGame:hover {
+    transition: 1s ease-in-out;
+    background: #daac4f;
+  }
+
+
 #life {
     display: block;
     width: 10vw;
     height: 5vh;
+    font-family: "texte";
+    font-size: 1rem;
+    margin-top: 3vh;
 }
 #timeRemaining {
     display: block;
     width: 10vw;
     height: 5vh;
-    margin-left: 4vw;
+    margin-top: 3vh;
+    font-family: "texte";
+    font-size: 1rem;
+}
+#vilsav {
+    display: block;
+    width: 10vw;
+    height: 5vh;
+    margin-top: 3vh;
+    font-family: "texte";
+    font-size: 1rem;
 }
 #navGame {
     width: 50vw;
@@ -39,6 +92,37 @@
     position: sticky;
     display: flex;
     flex-direction: row;
+    align-items: center;
+}
+
+.navimg {
+    height: 3vh;
+}
+
+/* Mise en forme page transition */
+
+.title {
+    font-family: "titre";
+    font-size: 8rem;
+    text-shadow: 3px 2px 3px #ffffff;
+}
+
+.msg1 {
+    font-family: "texte";
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+.msg2 {
+    font-family: "texte";
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.etat {
+    font-family: "texte";
+    font-size: 2.8rem;
+    color: white;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);;
 }
 /* mise en forme bloque principal & classes générales */
 .bloque {
@@ -474,9 +558,18 @@ animation-delay: 2s;
 /*css food*/
 
 .food {
-    background-color: green;
     position: absolute;
     z-index: 7;
+}
+.plein {
+    background-image: url("./assets/healPlein.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.vide {
+    background-image: url("./assets/healvide.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .hidden {
     display: none;
