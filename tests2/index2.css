@@ -349,11 +349,24 @@ animation: platdis 8s infinite linear;
 
 @keyframes platdis {
     20% {
-        display: none;
+        opacity: 0;
     }
-
+    21% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    22% {
+        transform: translateY(400px);
+    }
+    68% {
+        transform: translateY(400px);  
+    }
+    69% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
     70% {
-        display: none;
+        opacity: 1;
     }
 }
 
@@ -535,15 +548,23 @@ animation: platdis 8s infinite linear;
     }
 }
 @keyframes mt10Move {
+
+    29% {
+        opacity: 1;
+    }
    
     30% {
-        display: none;
+        opacity: 0;
         transform: translateX(0px);
     }
 
 
     60% {
-        display: none;
+        opacity: 0;
+        transform: translateX(-130px);
+    }
+    61% {
+        opacity: 1;
         transform: translateX(-130px);
     }
     80% {
