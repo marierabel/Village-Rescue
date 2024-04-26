@@ -36,7 +36,24 @@
   background-repeat: no-repeat;
   contain: paint;
 }
-#startGame {
+#howTo {
+    font-family: "texte";
+    font-size: 1.2rem;
+    width: 20vw;
+    height: 5vh;
+    display: block;
+    cursor: pointer;
+  background: #ffffffb0;
+  border: 1px solid #ffad91;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+#howTo:hover {
+    transition: 1s ease-in-out;
+    background: #daac4f;
+  }
+  #startGame {
     font-family: "texte";
     font-size: 1.2rem;
     width: 20vw;
@@ -116,6 +133,75 @@
     color: white;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);;
 }
+
+.howToPlay {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: wheat;
+    height: 70vh;
+    width: 70vw;
+}
+
+#close {
+    font-family: "texte";
+    font-size: 1.2rem;
+    width: 10vw;
+    height: 5vh;
+    display: block;
+    cursor: pointer;
+  background: #ffffffb0;
+  border: 1px solid #ffad91;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+.divide {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.gauche {
+    font-family: "texte";
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+.droite {
+    font-family: "texte";
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+.bas {
+    font-family: "texte";
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+
+.touches {
+    width: 40%;
+    height: auto;
+}
+
+#close:hover {
+    transition: 1s ease-in-out;
+    background: #daac4f;
+  }
+
 /* mise en forme bloque principal & classes générales */
 .bloque {
     position: absolute;

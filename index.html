@@ -9,12 +9,34 @@
   </head>
   <body>
     <div id="transition">
+      <div class="howToPlay hidden">
+        <div class="divide">
+          <div class="gauche">
+            <img class="touches" src="./tests2/assets/arrows.png" alt="" />
+            <img class="touches" src="./tests2/assets/space.png" alt="" />
+            <img class="touches" src="./tests2/assets/shiftKey.png" alt="" />
+          </div>
+          <div class="droite">
+            <div class="tcExpl">
+              Move the character with the arrows "right" and "left"
+            </div>
+            <div class="tcExpl">You can jump by using the space bar</div>
+            <div class="tcExpl">To save a villager press "shift"</div>
+          </div>
+        </div>
+        <div class="bas">
+          - To move as you jump press jump first then the arrow <br />
+          - If you're stuck, you can restart the game by pressing "r"
+        </div>
+        <button id="close">Close</button>
+      </div>
       <div class="flex">
         <div class="title">Village Rescue</div>
         <div class="etat"></div>
         <div class="msg1"></div>
         <div class="msg2"></div>
         <button id="startGame">Start Game</button>
+        <button id="howTo">How to play</button>
       </div>
     </div>
     <div id="gameFrame" class="hidden">

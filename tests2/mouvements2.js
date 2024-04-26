@@ -473,6 +473,18 @@ for (let i = 0; i < decorations.length; i++) {
   decorations[i].dc.style.left = sizeAndPositionDc[i].left + "px";
 }
 
+/* Bouton How to play*/
+const HowTo = document.querySelector(".howToPlay");
+const btnHtp = document.querySelector("#howTo");
+const close = document.querySelector("#close");
+
+btnHtp.addEventListener("click", (event) => {
+  HowTo.classList.remove("hidden");
+});
+close.addEventListener("click", (event) => {
+  HowTo.classList.add("hidden");
+});
+
 /* Bouton start*/
 
 const btnStart = document.querySelector("#startGame");
@@ -639,6 +651,8 @@ function game(persoMoi) {
           return villageSaved;
         }
         break;
+      case "r":
+        game(persoMoi);
     }
   });
   document.addEventListener("keyup", (e) => {
