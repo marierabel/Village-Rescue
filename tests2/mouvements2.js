@@ -33,6 +33,7 @@ const etat = document.querySelector(".etat");
 const messageUn = document.querySelector(".msg1");
 const messageDeux = document.querySelector(".msg2");
 const cadre = document.querySelector("#gameFrame");
+const navbar = document.querySelector("#navGame");
 let lifePoint = 10;
 const contLP = document.querySelector("#life");
 contLP.textContent = `${lifePoint}/10`;
@@ -478,6 +479,7 @@ const btnStart = document.querySelector("#startGame");
 
 btnStart.addEventListener("click", (event) => {
   cadre.classList.remove("hidden");
+  //navbar.classList.remove("hidden");
   transitionScreen.classList.add("hidden");
   game(persoMoi);
   /* window.scrollBy({
@@ -830,6 +832,7 @@ function game(persoMoi) {
   function endGame() {
     if (lifePoint === 0 || y < 0 || timeRemaining === 0 || villageSaved == 6) {
       cadre.classList.add("hidden");
+      //navbar.classList.add("hidden");
       transitionScreen.classList.remove("hidden");
       clearInterval(move);
       if (
